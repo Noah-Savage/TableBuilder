@@ -45,6 +45,21 @@ int main() {
     }
   }
 
+    //Find the length of the longest string in el1
+  int longString2 = 0;
+  for(int i = 0; i < tableSize; i++){
+    if(longString2 < elements2[i].length()){
+      longString2 = elements2[i].length();
+    }
+  }
+
+  int totLength = longString1 + longString2 + 3;
+  string sep = "";
+  for(int i = 0; i <= totLength; i++){
+    sep = sep + "-";
+  }
+  sep = sep + "\n";
+
   cout << "\n";
   cout << "     " + tableName ;
   cout << "\n";
@@ -52,5 +67,6 @@ int main() {
   //Print elements with dividers
   for(int i = 0; i < tableSize; i++){
     cout << elements1[i] + " | " + elements2[i] + "\n";
+    cout << sep;
   }
 }
