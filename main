@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+int main() {
+
+  string tableName;
+  int tableSize;
+  string el1;
+  cout << "What is the title of your database? ";
+  cin >> tableName;
+  cout << "How many rows is your database? ";
+  cin >> tableSize;
+
+  string elements1 [tableSize];
+
+  cout << "Begin typing the elements of your first category, ";
+  cout << "separated by hitting the enter key. ";
+  cin >> ws;
+  for(int i = 0; i < tableSize; i++){
+    getline(cin, elements1[i]);
+  }
+
+  cout << "Begin typing the elements of your second ";
+  cout << "category, separated by \nhitting the enter ";
+  cout << "key. ";
+
+  string elements2 [tableSize];
+
+  for(int i = 0; i < tableSize; i++){
+    getline(cin, elements2[i]);
+  }
+
+  //Find the length of the longest string in el1
+  int longString1 = 0;
+  for(int i = 0; i < tableSize; i++){
+    if(longString1 < elements1[i].length()){
+      longString1 = elements1[i].length();
+    }
+  }
+
+  //Make all strings the same length as the longest string in el1
+  for(int i = 0; i < tableSize; i++){
+    while(elements1[i].length() != longString1){
+      elements1[i] = elements1[i] + " ";
+    }
+  }
+
+  cout << "\n";
+  cout << "     " + tableName ;
+  cout << "\n";
+  
+  //Print elements with dividers
+  for(int i = 0; i < tableSize; i++){
+    cout << elements1[i] + " | " + elements2[i] + "\n";
+  }
+}
