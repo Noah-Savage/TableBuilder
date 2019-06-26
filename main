@@ -7,7 +7,7 @@ int main() {
   int tableSize;
   string el1;
   cout << "What is the title of your database? ";
-  cin >> tableName;
+  getline(cin, tableName);
   cout << "How many rows is your database? ";
   cin >> tableSize;
 
@@ -53,6 +53,7 @@ int main() {
     }
   }
 
+  //Create line of hyphens to separate rows
   int totLength = longString1 + longString2 + 3;
   string sep = "";
   for(int i = 0; i <= totLength; i++){
@@ -60,8 +61,12 @@ int main() {
   }
   sep = sep + "\n";
 
+  for(int i = 0; i < ((totLength/2) - 1); i++){
+    tableName = " " + tableName;
+  }
+
   cout << "\n";
-  cout << "     " + tableName ;
+  cout << tableName;
   cout << "\n";
   
   //Print elements with dividers
